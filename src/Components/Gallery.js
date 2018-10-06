@@ -2,9 +2,12 @@ import React from 'react';
 
 const Gallery = () => (
 
-<div class="photo-container">
+<div className="photo-container">
   <h2>Results</h2>
   <ul>
+    <li>
+      <img src="https://farm2.staticflickr.com/1902/43310387940_9c3e301e6b.jpg" alt="" />
+    </li>
     <li>
       <img src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg" alt="" />
     </li>
@@ -18,7 +21,7 @@ const Gallery = () => (
       <img src="https://farm5.staticflickr.com/4425/36337012384_ba3365621e.jpg" alt="" />
     </li>
 
-    <li class="not-found">
+    <li className="not-found">
       <h3>No Results Found</h3>
       <p>You search did not return any results. Please try again.</p>
     </li>
