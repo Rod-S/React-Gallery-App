@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 export default class Search extends Component {
 
+  state = {
+    searchText: ''
+  }
+
   onSearchChange = e => {
     this.setState({
       searchText: e.target.value
@@ -10,18 +14,17 @@ export default class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    //this.props.onSearch(this.state.searchText);
-    this.props.onSearch(this.tags.value);
+    this.props.onSearch(this.cats.value);
     e.currentTarget.reset();
   }
 
   render() {
     return (
-      <form className="search-form">
+      <form className="search-form" onSubmit={this.handleSubmit} >
         <input
           type="search"
           onChange={this.onSearchChange}
-          ref={(input) => this.tags = input}
+          ref={(input) => this.cats = input}
           name="search"
           placeholder="Search"
           required
