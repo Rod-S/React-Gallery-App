@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-
 
 import Header from './Components/Header';
 import Nav from './Components/Nav';
@@ -17,16 +16,15 @@ class App extends Component {
     this.state = {
       photos: [],
       loading: true,
-      tags: ''
     };
   }
 
   componentDidMount() {
-    this.performSearch();
+    this.performSearch('cat');
   }
 
-  performSearch = (cats) => {
-      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=?&tags=${cats}&safe_search=1&per_page=24&page=1&api_key=${apiKey}`)
+  performSearch = (tags) => {
+      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=?&tags=${tags}&safe_search=1&per_page=24&page=1&api_key=${apiKey}`)
         .then(response => {
           this.setState(prevState => ({
             photos: response.data.photos.photo,
@@ -47,11 +45,18 @@ class App extends Component {
           {/*<Header
             onSearch={this.performSearch}
           /> */}
-          <Search onSearch={this.performSearch}/>
-          <Nav />
-          <Gallery
-            data={this.state.photos}
+          <Search
+            onSearch={this.performSearch}
           />
+          <Nav />
+          {
+            (this.state.loading)
+              ? <p>Loading...</p>
+              :
+              <Gallery
+                data={this.state.photos}
+              />
+          }
         </div>
       </BrowserRouter>
     );

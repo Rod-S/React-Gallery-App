@@ -14,7 +14,7 @@ export default class Search extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.cats.value);
+    this.props.onSearch(this.tags.value);
     e.currentTarget.reset();
   }
 
@@ -24,9 +24,9 @@ export default class Search extends Component {
         <input
           type="search"
           onChange={this.onSearchChange}
-          ref={(input) => this.cats = input}
+          ref={(input) => this.tags = input}
           name="search"
-          placeholder="Search"
+          placeholder=""
           required
         />
         <button type="submit" className="search-button">
