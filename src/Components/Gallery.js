@@ -4,6 +4,7 @@ import NoGalleryItem from './NoGallery-item';
 
 const Gallery = props => {
 
+  const title = props.title;
   const results = props.data;
   let photos;
   if (results.length > 0) {
@@ -23,7 +24,7 @@ const Gallery = props => {
 
   return (
   <div className="photo-container">
-    <h2>Results</h2>
+    <h2>{title}</h2>
     <ul>
       {photos}
     </ul>

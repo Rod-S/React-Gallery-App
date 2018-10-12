@@ -6,6 +6,7 @@ import Nav from './Nav';
 import Gallery from './Gallery';
 import apiKey from '../.config';
 import Search from './Search';
+
 import { withRouter } from 'react-router-dom';
 
   class Container extends Component {
@@ -62,6 +63,7 @@ import { withRouter } from 'react-router-dom';
                   :
                   <Gallery
                     data={this.state.photos}
+                    title={this.props.match.params.id}
                   />
               }
             </div>
@@ -69,4 +71,4 @@ import { withRouter } from 'react-router-dom';
     }
   }
 
-export default withRouter(Container)
+export default withRouter(Container);
