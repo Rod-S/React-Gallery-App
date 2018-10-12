@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch, } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
+//import Header from './Header';
 import Container from './Components/Container';
 import NotFound from './Components/NotFound';
-
+;
 
 const App = () => (
   <BrowserRouter>
     <div className="container">
       <Switch>
         <Route
-          exact path='/:id'
-          render={(props) => <Container  {...props} />}
-        />
+          exact path='/'
+          render={(props) => <Redirect to="/cats" {...props} />}
+        />*}
         <Route
-          path ='/search/:id'
+          exact path ='/:id'
           render={(props) => <Container {...props} /> }
         />
         <Route
@@ -24,6 +26,7 @@ const App = () => (
       </Switch>
     </div>
   </BrowserRouter>
-    );
+);
+
 
 export default App;
