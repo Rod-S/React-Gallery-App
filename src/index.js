@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import '../src/css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './Components/NotFound';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Route
-      exact path ='/:id'
-      render={(props) => <App {...props} /> }
-    />
+    <Switch>
+      <Route
+        exact path = '/'
+        render={(props) => <App {...props} /> }
+      />
+      <Route
+         path ='/:id'
+        render={(props) => <App {...props} /> }
+      />
+    </Switch>
   </BrowserRouter>
   , document.getElementById('root'));
 
