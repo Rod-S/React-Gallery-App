@@ -5,17 +5,26 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './Components/NotFound';
+import Header from './Components/Header';
+import Nav from './Components/Nav';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route
-        exact path = '/'
+        exact path= '/'
+        component={Header, Nav}
+      />
+      <Route
+        exact path='/:id'
         render={(props) => <App {...props} /> }
       />
       <Route
-         path ='/:id'
+        path='/search/:id'
         render={(props) => <App {...props} /> }
+      />
+      <Route
+        component={NotFound}
       />
     </Switch>
   </BrowserRouter>

@@ -8,7 +8,6 @@ import Gallery from './Components/Gallery';
 import apiKey from './.config';
 import Search from './Components/Search';
 
-import { withRouter } from 'react-router-dom';
 
   class App extends Component {
 
@@ -21,7 +20,6 @@ import { withRouter } from 'react-router-dom';
     }
 
     componentDidMount() {
-      //this.setState();
       this.performSearch(this.props.match.params.id);
     };
 
@@ -32,6 +30,9 @@ import { withRouter } from 'react-router-dom';
     }
 
     performSearch = (tags) => {
+      this.setState(prevState => ({
+        loading: true
+      }));
         axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=?&tags=${tags}&safe_search=1&per_page=24&page=1&api_key=${apiKey}`)
           .then(response => {
             this.setState(prevState => ({
