@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 
-//import Header from './Header';
-import Nav from './Components/Nav';
 import Gallery from './Components/Gallery';
 import apiKey from './.config';
-import Search from './Components/Search';
-
+import Header from './Components/Header';
 
   class App extends Component {
 
@@ -15,18 +12,27 @@ import Search from './Components/Search';
       super();
       this.state = {
         photos: [],
-        loading: true,
+        loading: true
       };
     }
 
     componentDidMount() {
+
+      if (this.props.match.path === '/') {
+        this.setState( prevState => ({
+          loading: false,
+          photos: [''],
+          root: true
+        }));
+    } else {
       this.performSearch(this.props.match.params.id);
+      }
     };
 
     componentDidUpdate(prevProps) {
-      if(this.props.match.params.id !== prevProps.match.params.id) {
-        this.performSearch(this.props.match.params.id);
-      }
+        if(this.props.match.params.id !== prevProps.match.params.id) {
+          this.performSearch(this.props.match.params.id);
+        }
     }
 
     performSearch = (tags) => {
@@ -38,8 +44,7 @@ import Search from './Components/Search';
             this.setState(prevState => ({
               photos: response.data.photos.photo,
               loading: false
-              })
-            );
+              }));
             console.log(response.data.photos.photo);
           })
           .catch(error => {
@@ -51,20 +56,25 @@ import Search from './Components/Search';
       return (
             <div className="container">
               {console.log(this.props.match.params.id)}
-              {/*<Header
-                onSearch={this.performSearch}
-              /> */}
-              <Search
-                onSearch={this.performSearch}
+
+              <Header
+                performSearch={this.performSearch}
               />
-              <Nav />
-              {
+              {/*
+                <Search
+                onSearch={this.performSearch}
+                />
+                <Nav />
+              */}
+                {
                 (this.state.loading)
                   ? <p>Loading...</p>
                   :
                   <Gallery
                     data={this.state.photos}
                     title={this.props.match.params.id}
+                    root={this.state.root}
+
                   />
               }
             </div>
