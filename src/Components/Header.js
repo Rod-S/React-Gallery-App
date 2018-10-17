@@ -5,7 +5,7 @@ import Nav from './Nav';
 const Header = (props) => (
   <header>
     <Search
-      onSearch={props.onSearch}
+      performSearch={props.performSearch}
     />
     <Nav
     />
