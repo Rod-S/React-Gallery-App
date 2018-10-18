@@ -1,7 +1,8 @@
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  color: #2E2A2A;
+  background-color: #4192EB
 }
 
 h2 {
@@ -117,7 +118,7 @@ input {
     display: flex;
     justify-content: center;
   }
-  
+
   .main-nav li {
     margin: 10px;
     width: 100px;
