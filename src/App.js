@@ -17,7 +17,6 @@ import Header from './Components/Header';
     }
 
     componentDidMount() {
-
       if (this.props.match.path === '/') {
         this.setState( prevState => ({
           loading: false,
@@ -34,6 +33,11 @@ import Header from './Components/Header';
           this.performSearch(this.props.match.params.id);
         }
     }
+
+    componentWillUnmount() {
+
+    }
+
 
     performSearch = (tags) => {
       this.setState(prevState => ({
