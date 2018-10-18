@@ -1,5 +1,18 @@
 This project uses React-Router-v4 and the Flickr API.
 
+INSTRUCTIONS:
+
+- Run npm install within the project directory
+- add a file named .config.js within the src directory
+  - The file should have 2 lines that look like this:
+
+        const apiKey = 'YOUR FLICKR API KEY';
+        export default apiKey;
+
+- Run NPM start in the terminal to start the application!
+
+--
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

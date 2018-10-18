@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 
+
+//Separate Class component made to manage state and handlers
 class Search extends Component {
 
+  //initial state
   state = {
     searchText: ''
   }
 
+  //state handler
   onSearchChange = e => {
     this.setState({
       searchText: e.target.value
     });
   }
 
+  //handler for searchbar text on submit event
   handleSubmit = e => {
     e.preventDefault();
     this.props.performSearch(this.tags.value);
@@ -21,6 +26,7 @@ class Search extends Component {
     console.log(this.state.searchText)
   }
 
+  //render searchbar input
   render() {
     return (
         <form className="search-form" onSubmit={this.handleSubmit} >
