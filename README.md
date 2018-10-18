@@ -9,7 +9,7 @@ INSTRUCTIONS:
         const apiKey = 'YOUR FLICKR API KEY';
         export default apiKey;
 
-- Run NPM start in the terminal to start the application!
+- Run NPM start in the terminal to launch the application in your browser!
 
 --
 

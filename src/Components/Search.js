@@ -23,7 +23,6 @@ class Search extends Component {
     this.props.performSearch(this.tags.value);
     this.props.history.push(`/search/${this.state.searchText}`);
     e.currentTarget.reset();
-    console.log(this.state.searchText)
   }
 
   //render searchbar input

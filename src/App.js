@@ -56,7 +56,6 @@ class App extends Component {
             loading: false
             }));
           }
-          console.log(response.data.photos.photo);
         })
         .catch(error => {
           console.log('Error fetching and parsing data', error);
@@ -78,7 +77,6 @@ class App extends Component {
                   data={this.state.photos}
                   title={this.props.match.params.id}
                   root={this.state.root}
-
                 />
             }
           </div>
