@@ -17,6 +17,7 @@ import Header from './Components/Header';
     }
 
     componentDidMount() {
+      this.mounted = true;
       if (this.props.match.path === '/') {
         this.setState( prevState => ({
           loading: false,
@@ -35,7 +36,7 @@ import Header from './Components/Header';
     }
 
     componentWillUnmount() {
-
+      this.mounted = false;
     }
 
 
@@ -45,10 +46,12 @@ import Header from './Components/Header';
       }));
         axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=?&tags=${tags}&safe_search=1&per_page=24&page=1&api_key=${apiKey}`)
           .then(response => {
+            if (this.mounted) {
             this.setState(prevState => ({
               photos: response.data.photos.photo,
               loading: false
               }));
+            }
             console.log(response.data.photos.photo);
           })
           .catch(error => {
@@ -59,17 +62,9 @@ import Header from './Components/Header';
     render() {
       return (
             <div className="container">
-              {console.log(this.props.match.params.id)}
-
               <Header
                 performSearch={this.performSearch}
               />
-              {/*
-                <Search
-                onSearch={this.performSearch}
-                />
-                <Nav />
-              */}
                 {
                 (this.state.loading)
                   ? <p>Loading...</p>
