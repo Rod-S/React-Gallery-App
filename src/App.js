@@ -26,8 +26,8 @@ class App extends Component {
         photos: [''],
         root: true
       }));
-  } else {
-    this.performSearch(this.props.match.params.id);
+    } else {
+      this.performSearch(this.props.match.params.id);
     }
   };
 

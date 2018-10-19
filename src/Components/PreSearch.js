@@ -1,5 +1,6 @@
 import React from 'react';
 
+//initial message component on app load
 const PreSearch = props => (
 
   <li className="not-found">
