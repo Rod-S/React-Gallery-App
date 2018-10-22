@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 //Separate Class component made to manage state and handlers
@@ -47,5 +48,9 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes ={
+  performSearch: PropTypes.func.isRequired
+};
 
 export default withRouter(Search)

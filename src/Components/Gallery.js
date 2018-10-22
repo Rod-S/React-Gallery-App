@@ -2,6 +2,7 @@ import React from 'react';
 import GalleryItem from './Gallery-item';
 import NoGalleryItem from './NoGallery-item';
 import PreSearch from './PreSearch';
+import PropTypes from 'prop-types';
 
 //photo gallery
 const Gallery = props => {
@@ -38,5 +39,11 @@ const Gallery = props => {
   </div>
   )
   };
+
+Gallery.propTypes = {
+  data: PropTypes.array.isRequired,
+  title: PropTypes.string,
+  root: PropTypes.bool
+};
 
 export default Gallery;
