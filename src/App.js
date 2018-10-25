@@ -65,21 +65,21 @@ class App extends Component {
   //render component with state and props passed to nested components
   render() {
     return (
-          <div className="container">
-            <Header
-              performSearch={this.performSearch}
+      <div className="container">
+        <Header
+          performSearch={this.performSearch}
+        />
+        {
+          (this.state.loading)
+            ? <p>Loading...</p>
+            :
+            <Gallery
+              data={this.state.photos}
+              title={this.props.match.params.id}
+              root={this.state.root}
             />
-            {
-              (this.state.loading)
-                ? <p>Loading...</p>
-                :
-                <Gallery
-                  data={this.state.photos}
-                  title={this.props.match.params.id}
-                  root={this.state.root}
-                />
-            }
-          </div>
+        }
+      </div>
     );
   };
 };
